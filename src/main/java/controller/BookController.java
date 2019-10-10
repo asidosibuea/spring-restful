@@ -38,6 +38,7 @@ public class BookController {
 			res.setMessage("Get Data Success");
 			res.setData(booksDto);
 		} catch (Exception e) {
+			System.out.println(e);
 			res.setStatus(0);
 			res.setMessage("Error. Get Data Failed");
 		}
@@ -96,6 +97,7 @@ public class BookController {
 			res.setMessage("Insert data success");
 			res.setData(dto);
 		} catch (Exception e) {
+			System.out.println(e);
 			res.setStatus(0);
 			res.setMessage("Failed insert data");
 		}
@@ -117,7 +119,6 @@ public class BookController {
 				res.setStatus(0);
 				res.setListErrorMessage(listError);
 				res.setMessage("Failed Updated Data");
-				//response.setData(null);
 			} else{				
 				service.update(dto);
 				res.setStatus(1);
@@ -161,10 +162,8 @@ public class BookController {
 		} else if(dto.getPublisher().length()<9){
 			errors.add("Publisher at least 9 characters");
 		} else if(dto.getDescription().length() < 9){
-			errors.add("Genre at least 9 characters");
-		} else if(dto.getGenre() != 'N' || dto.getGenre() != 'A' || dto.getGenre() != 'C' || dto.getGenre() != 'H' || dto.getGenre() != 'O'){
-			errors.add("Unknown Genre.");
-		} else if(dto.getBuyPrice()<=2000){
+			errors.add("Description at least 9 characters");
+		}else if(dto.getBuyPrice()<=2000){
 			errors.add("Buy prica must bigger than 2000");
 		}
 		return errors;

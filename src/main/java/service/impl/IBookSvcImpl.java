@@ -80,10 +80,12 @@ public class IBookSvcImpl implements IBookSvc {
 		book.setAuthor(dto.getAuthor());
 		book.setPublisher(dto.getPublisher());
 		book.setLanguage(dto.getLanguage());
-		book.setGenre(dto.getGenre());
+		book.setGenre(dto.getGenre().charAt(0));
 		book.setLocation(dto.getLocation());
 		book.setBuyDate(dto.getBuyDate());
 		book.setBuyPrice(dto.getBuyPrice());
+		book.setTitle(dto.getTitle());
+		book.setCode(dto.getCode());
 
 		dao.save(book);
 	}
@@ -91,15 +93,16 @@ public class IBookSvcImpl implements IBookSvc {
 	@Override
 	public void update(BookDto dto) {
 		Book book = dao.findOne(dto.getCode());
-
+		
 		book.setDescription(dto.getDescription());
 		book.setAuthor(dto.getAuthor());
 		book.setPublisher(dto.getPublisher());
 		book.setLanguage(dto.getLanguage());
-		book.setGenre(dto.getGenre());
+		book.setGenre(dto.getGenre().charAt(0));
 		book.setLocation(dto.getLocation());
 		book.setBuyDate(dto.getBuyDate());
 		book.setBuyPrice(dto.getBuyPrice());
+		book.setTitle(dto.getTitle());
 		dao.save(book);
 	}
 

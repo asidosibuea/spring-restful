@@ -12,7 +12,7 @@ public class BookDto {
 	private String author;
 	private String publisher;
 	private String language;
-	private char genre;
+	private String genre;
 	private String location;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date buyDate;
@@ -66,11 +66,11 @@ public class BookDto {
 		this.language = language;
 	}
 
-	public char getGenre() {
+	public String getGenre() {
 		return genre;
 	}
 
-	public void setGenre(char genre) {
+	public void setGenre(String genre) {
 		this.genre = genre;
 	}
 

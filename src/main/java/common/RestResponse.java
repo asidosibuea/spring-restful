@@ -1,5 +1,6 @@
 package common;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class RestResponse {
@@ -7,7 +8,7 @@ public class RestResponse {
 	private int status;
 	private String message;
 	private Object data;
-	private List<String> listErrorMessage;
+	private List<String> listErrorMessage  = new LinkedList<>();
 
 	public int getStatus() {
 		return status;
